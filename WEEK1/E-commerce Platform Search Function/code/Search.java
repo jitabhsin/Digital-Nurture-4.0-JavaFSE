@@ -1,12 +1,5 @@
 public class Search {
-/*Explanation of the Asymptotic Notation
- *  Big O Notation: O(n) for linear search, O(log n) for binary search
-  Best Case: Time: O(1) 
 
-Average Case: Time: O(n) 
-
-Worst Case: Time: O(n) 
- */
     public static Product binarysearch(Product[]array,String item){
         int l=0;
         int r=array.length-1;
