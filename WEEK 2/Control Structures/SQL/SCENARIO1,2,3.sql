@@ -25,27 +25,39 @@ JOIN Customers c ON l.CustomerID = c.CustomerID
 ORDER BY l.LoanID;
 
 --- SCENARIO 2------------
-BEGIN
-  BEGIN
-    EXECUTE IMMEDIATE 'ALTER TABLE Customers ADD IsVIP VARCHAR2(5)';
-  EXCEPTION
-    WHEN OTHERS THEN
-      NULL;
-  END;
 
-  FOR cust IN (SELECT CustomerID, Balance, Name FROM Customers) LOOP
-    IF cust.Balance > 10000 THEN
-      UPDATE Customers SET IsVIP = 'TRUE' WHERE CustomerID = cust.CustomerID;
-      DBMS_OUTPUT.PUT_LINE('Customer ' || cust.CustomerID || ' (' || cust.Name || ') marked as VIP');
-    ELSE
-      UPDATE Customers SET IsVIP = 'FALSE' WHERE CustomerID = cust.CustomerID;
-    END IF;
-  END LOOP;
-  COMMIT;
+DECLARE
+  v_count NUMBER;
+BEGIN
+  SELECT COUNT(*) INTO v_count
+  FROM user_tab_columns
+  WHERE table_name = 'CUSTOMERS'
+    AND column_name = 'ISVIP';
+
+  IF v_count = 0 THEN
+    EXECUTE IMMEDIATE 'ALTER TABLE ADD ISVIP';
+  END IF;
 END;
 /
 
-SELECT CustomerID, Name, Balance, IsVIP FROM Customers ORDER BY CustomerID;
+SET SERVEROUTPUT ON;
+
+BEGIN
+  UPDATE Customers
+  SET IsVIP = CASE WHEN Balance > 10000 THEN 'TRUE' ELSE 'FALSE' END;
+
+  COMMIT;
+
+  FOR cust IN (SELECT CustomerID, Name FROM Customers WHERE IsVIP = 'TRUE') LOOP
+    DBMS_OUTPUT.PUT_LINE('Customer ' || cust.CustomerID || ' (' || cust.Name || ') marked as VIP');
+  END LOOP;
+END;
+/
+
+SELECT CustomerID, Name, Balance, IsVIP
+FROM Customers
+ORDER BY CustomerID;
+
 
 -- SCENARIO 3 ----------------------------------
 BEGIN
