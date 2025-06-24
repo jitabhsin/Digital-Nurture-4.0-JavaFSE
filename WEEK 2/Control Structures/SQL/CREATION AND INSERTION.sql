@@ -50,11 +50,11 @@ INSERT INTO Customers (CustomerID, Name, DOB, Balance, LastModified) VALUES (3, 
 INSERT INTO Customers (CustomerID, Name, DOB, Balance, LastModified) VALUES (4, 'Divya Nair', TO_DATE('1998-11-02', 'YYYY-MM-DD'), 2700, SYSDATE);
 INSERT INTO Customers (CustomerID, Name, DOB, Balance, LastModified) VALUES (5, 'Neha Singh', TO_DATE('2002-01-25', 'YYYY-MM-DD'), 4200, SYSDATE);
 
-INSERT INTO Accounts (AccountID, CustomerID, AccountType, Balance, LastModified) VALUES (1, 1, 'Savings', 1200, SYSDATE);
+INSERT INTO Accounts (AccountID, CustomerID, AccountType, Balance, LastModified) VALUES (1, 1, 'Savings', 11200, SYSDATE);
 INSERT INTO Accounts (AccountID, CustomerID, AccountType, Balance, LastModified) VALUES (2, 2, 'Current', 1800, SYSDATE);
 INSERT INTO Accounts (AccountID, CustomerID, AccountType, Balance, LastModified) VALUES (3, 3, 'Savings', 3500, SYSDATE);
 INSERT INTO Accounts (AccountID, CustomerID, AccountType, Balance, LastModified) VALUES (4, 4, 'Current', 2700, SYSDATE);
-INSERT INTO Accounts (AccountID, CustomerID, AccountType, Balance, LastModified) VALUES (5, 5, 'Savings', 4200, SYSDATE);
+INSERT INTO Accounts (AccountID, CustomerID, AccountType, Balance, LastModified) VALUES (5, 5, 'Savings', 41200, SYSDATE);
 
 INSERT INTO Transactions (TransactionID, AccountID, TransactionDate, Amount, TransactionType) VALUES (1, 1, SYSDATE, 300, 'Deposit');
 INSERT INTO Transactions (TransactionID, AccountID, TransactionDate, Amount, TransactionType) VALUES (2, 2, SYSDATE, 400, 'Withdrawal');
