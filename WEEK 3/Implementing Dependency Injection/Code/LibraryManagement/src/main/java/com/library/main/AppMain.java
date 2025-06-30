@@ -10,8 +10,6 @@ public class AppMain {
 
         BookService bookService = context.getBean("bookService", BookService.class);
         bookService.displayBooks();
-        
-        
 
         ((ClassPathXmlApplicationContext) context).close();
     }
