@@ -12,7 +12,7 @@ EXEC ProcessMonthlyInterest;
 
 SELECT * FROM Accounts;
 
--- scenario 2
+--scenario 2
 
 CREATE OR REPLACE PROCEDURE UpdateEmployeeBonus(
   dept IN VARCHAR2,
@@ -29,7 +29,7 @@ EXEC UpdateEmployeeBonus('IT', 10);
 
 SELECT * FROM Employees;
 
--- scenario 3
+--scenario 3
 
 CREATE OR REPLACE PROCEDURE TransferFunds(
   from_acc IN NUMBER,
