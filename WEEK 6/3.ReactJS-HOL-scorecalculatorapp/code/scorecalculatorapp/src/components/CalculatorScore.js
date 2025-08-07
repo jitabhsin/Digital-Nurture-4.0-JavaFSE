@@ -1,4 +1,4 @@
-import './Stylesheets/mystyle.css';
+import './mystyle.css';
 const percentTODecimal=(decimal)=>{
     return (decimal.toFixed(2)+'%');
 }
@@ -24,10 +24,7 @@ export const CalculateScore = ({Name, School, total, goal}) => (
     <div className="Score">
       <b>Score:</b>
       <span>
-        {calcScore(
-          total,
-          goal
-        )}
+        {calcScore(total,goal )}
       </span>
     </div>
   </div>

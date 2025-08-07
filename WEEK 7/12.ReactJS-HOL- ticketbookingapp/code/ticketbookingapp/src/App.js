@@ -42,9 +42,15 @@ function App() {
   return (
     <div style={{ textAlign: 'center', padding: '30px' }}>
       <h1>ticket booking app</h1>
-      {isloggedin
-        ? <LogoutButton onClick={handlelogout} />
-        : <LoginButton onClick={handlelogin} />
+      {
+        // manual if-else rendering
+        (() => {
+          if (false) {
+            return <LogoutButton onClick={handlelogout} />;
+          } else {
+            return <LoginButton onClick={handlelogin} />;
+          }
+        })()
       }
       <Greeting isloggedin={isloggedin} />
     </div>
