@@ -1,0 +1,27 @@
+.App {
+  text-align: center;
+  font-family: Arial;
+  margin-top: 20px;
+}
+
+img {
+  margin: 20px;
+}
+
+.card {
+  border: 1px solid gray;
+  padding: 15px;
+  margin: 10px;
+  border-radius: 10px;
+  width: 40%;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.textRed {
+  color: red;
+}
+
+.textGreen {
+  color: green;
+}
